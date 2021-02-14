@@ -12,7 +12,7 @@ namespace EscuelaEtapa1.Entidades
         //Propiedad que hace posible que se acceda al "nombre" que es private.
         public string Nombre
         {
-            get { return "Copia:" +nombre; }
+            get { return "Copia:" + nombre; }
             set { nombre = value.ToUpper(); }
         }
 
@@ -37,11 +37,30 @@ namespace EscuelaEtapa1.Entidades
         //Manera corta de escribir un metodo: IGUALACION POR TUPLAS
         public Escuela(string nombre, int año) => (Nombre, AñoDeCreacion) = (nombre, año);
 
-        //Sobre-escribir un metodo:
+        //Otra manera de escribir un constructor
+        public Escuela(string nombre,
+            int año, 
+            TiposEscuela tipo,
+            string pais="",
+            string ciudad="")
+        {
+            //Asignacion por duplas
+            (Nombre, AñoDeCreacion) = (nombre, año);
+            Pais = pais;
+            this.Ciudad = ciudad;
+        }
+
+        //LA SOBRECARGA se evidencia en los metodos constructores anteriores. Tienen el mismo nombre pero parametros diferentes.
+
+        //Sobre-escribir un metodo:Cambiar funcionalidad
+        //El signo dolar antes de la cadena de texto nos permite utilizar variables especificadas
+        //Aqui: string pais=""  es un metodo opcional
         public override string ToString()
         {
-            return $"Nombre: {Nombre}, Tipo: {TipoEscuela} \nPaís: {Pais}, Ciudad: {Ciudad}";
+            return $"Nombre: \"{Nombre}\", Tipo: {TipoEscuela} \nPaís: {Pais}, Ciudad: {Ciudad}";
         }
+        //Caracteres especiales. Por ejemplo en caso de tener que imprimir comillas: \"{Nombre}\"
+        //Salto de linea: \n o {System.Environment.NewLine} que es posible de utilizar en todos los sistemas operativos
 
 
     }
