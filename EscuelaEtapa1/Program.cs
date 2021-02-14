@@ -63,16 +63,22 @@ namespace EscuelaEtapa1
                 Nombre = "301"
             };
 
-            System.Console.WriteLine("----------------");
-               
-            //Forma de imprimir por la generacion de un metodo
-            ImprimirCursos(arregloCursos);
 
+            //Forma de imprimir por la generacion del metodo WHILE
+            System.Console.WriteLine("While: ----------------");
+            ImprimirCursosWhile(arregloCursos);
+            //Forma de imprimir por la generacion del metodo DOWHILE
+            System.Console.WriteLine("DoWhile: ----------------");
+            ImprimirCursosDoWhile(arregloCursos);
+            //Forma de imprimir por la generacion del metodo FOR
+            System.Console.WriteLine("For: ----------------");
+            ImprimirCursosFor(arregloCursos);
+            
 
             Console.ReadKey();
         }
 
-        private static void ImprimirCursos(Curso[] arregloCursos)
+        private static void ImprimirCursosWhile(Curso[] arregloCursos)
         {
             int contador = 0;
             while (contador < arregloCursos.Length)
@@ -81,5 +87,27 @@ namespace EscuelaEtapa1
                 contador++;
             }
         }
+
+        
+        private static void ImprimirCursosDoWhile(Curso[] arregloCursos)
+        {
+            int contador = 0;
+            do
+            {
+                Console.WriteLine($"Nombre {arregloCursos[contador].Nombre}, Id{arregloCursos[contador].UniqueId}");
+                contador++;
+            } while (contador < arregloCursos.Length);
+        }
+
+        private static void ImprimirCursosFor(Curso[] arregloCursos)
+        {
+            for (int i = 0; i < arregloCursos.Length; i++)
+            {
+                Console.WriteLine($"Nombre {arregloCursos[i].Nombre}, Id{arregloCursos[i].UniqueId}");
+            }
+                
+                
+        }
+
     }
 }
