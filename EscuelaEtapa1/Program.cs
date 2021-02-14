@@ -1,5 +1,6 @@
 ﻿using EscuelaEtapa1.Entidades;
 using System;
+using static System.Console; //Permite solo escribir el "WriteLine"
 
 namespace EscuelaEtapa1
 {
@@ -45,8 +46,9 @@ namespace EscuelaEtapa1
             //COMO HACER PARA MANEJAR MULTIPLES OBJETOS EN LA ESCUELA?
             //Pues, creamos un arreglo de objetos
             //3 formas de crearlo:
-            var arregloCursos = new Curso[3];
 
+            //1ERA FORMA DE DECLARAR EL ARRAY
+            /*var arregloCursos = new Curso[3];
             arregloCursos[0] = new Curso()
             {
                 Nombre = "101"
@@ -61,10 +63,32 @@ namespace EscuelaEtapa1
             arregloCursos[2] = new Curso
             {
                 Nombre = "301"
+            };*/
+
+            //2NDA FORMA DE DECLARA EL ARRAY
+            /*var arregloCursos = new Curso[3] {
+                new Curso(){Nombre = "201"},
+                new Curso(){Nombre = "201"},
+                new Curso{Nombre = "301"}
+            };*/
+
+            //3ERA FORMA DE DECLARAR EL ARRAY
+            /*Curso[] arregloCursos = {
+                new Curso(){Nombre = "201"},
+                new Curso(){Nombre = "201"},
+                new Curso(){Nombre = "301"}
+            };*/
+
+            //4TA FORMA CON EL ATRIBUTO "CURSOS" CREADO EN "ESCUELA"
+            escuela.Cursos = new Curso[] {
+                new Curso(){Nombre = "201"},
+                new Curso(){Nombre = "201"},
+                new Curso(){Nombre = "301"}
             };
 
-
-            //Forma de imprimir por la generacion del metodo WHILE
+            escuela = null;
+            //IMPRESIONES CON CICLOS REPETITIVOS
+            /*//Forma de imprimir por la generacion del metodo WHILE
             System.Console.WriteLine("While: ----------------");
             ImprimirCursosWhile(arregloCursos);
             //Forma de imprimir por la generacion del metodo DOWHILE
@@ -73,9 +97,29 @@ namespace EscuelaEtapa1
             //Forma de imprimir por la generacion del metodo FOR
             System.Console.WriteLine("For: ----------------");
             ImprimirCursosFor(arregloCursos);
-            
+            //Forma de imprimir por la generacion del metodo FOR EACH
+            System.Console.WriteLine("ForEach: ----------------");
+            ImprimirCursosForEach(arregloCursos);*/
+
+            //Nuevo metodo:
+            ImprimirCursosEscuela(escuela);
+
 
             Console.ReadKey();
+        }
+
+        private static void ImprimirCursosEscuela(Escuela escuela)
+        {
+            WriteLine("====================");
+            WriteLine("CURSOS DE LA ESCUELA");
+            WriteLine("====================");
+            if(escuela != null && escuela.Cursos != null)
+            {
+                foreach (var curso in escuela.Cursos)
+                {
+                   Console.WriteLine($"Nombre {curso.Nombre}, Id{curso.UniqueId}");
+                }
+            }
         }
 
         private static void ImprimirCursosWhile(Curso[] arregloCursos)
@@ -104,9 +148,15 @@ namespace EscuelaEtapa1
             for (int i = 0; i < arregloCursos.Length; i++)
             {
                 Console.WriteLine($"Nombre {arregloCursos[i].Nombre}, Id{arregloCursos[i].UniqueId}");
+            }  
+        }
+
+        private static void ImprimirCursosForEach(Curso[] arregloCursos)
+        {
+            foreach (var curso in arregloCursos)
+            {
+                Console.WriteLine($"Nombre {curso.Nombre}, Id{curso.UniqueId}");
             }
-                
-                
         }
 
     }
