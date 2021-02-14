@@ -24,6 +24,7 @@ namespace EscuelaEtapa1.Entidades
         public string Ciudad { get; set; }
         public TiposEscuela TipoEscuela { get; set; }
 
+
         //MECANISMOS PARA INICIALIZAR LA ESCUELA
         //Constructor: metodo que ayuda a crear una instancia de este objeto
         //La escuela se crea con un nombre y un año

@@ -20,6 +20,28 @@ namespace EscuelaEtapa1
             //En este caso, cada vez que se quiera llamar a una cadena, se imprime el metodo sobre-escrito
             Console.WriteLine(escuela);
 
+            var curso1 = new Curso() { 
+                Nombre = "101"
+            };
+
+            var curso2 = new Curso()
+            {
+                Nombre = "201"
+            };
+
+            var curso3 = new Curso()
+            {
+                Nombre = "301"
+            };
+
+            //Imprimir una linea
+            System.Console.WriteLine("----------------");
+            //Imprimir la informacion de los cursos
+            Console.WriteLine(curso1.Nombre + "," + curso1.UniqueId);
+            //Otro tipo de impresion
+            Console.WriteLine($"{curso2.Nombre},{curso2.UniqueId}");
+            Console.WriteLine(curso3);
+
             Console.ReadKey();
         }
     }
