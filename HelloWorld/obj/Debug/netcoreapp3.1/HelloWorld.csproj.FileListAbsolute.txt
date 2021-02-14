@@ -1,0 +1,13 @@
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.exe
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.deps.json
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.runtimeconfig.json
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.runtimeconfig.dev.json
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.dll
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.pdb
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.csprojAssemblyReference.cache
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.AssemblyInfoInputs.cache
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.AssemblyInfo.cs
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.csproj.CoreCompileInputs.cache
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.dll
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.pdb
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.genruntimeconfig.cache

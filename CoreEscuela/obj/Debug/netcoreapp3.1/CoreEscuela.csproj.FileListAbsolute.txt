@@ -1,0 +1,13 @@
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\bin\Debug\netcoreapp3.1\CoreEscuela.exe
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\bin\Debug\netcoreapp3.1\CoreEscuela.deps.json
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\bin\Debug\netcoreapp3.1\CoreEscuela.runtimeconfig.json
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\bin\Debug\netcoreapp3.1\CoreEscuela.runtimeconfig.dev.json
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\bin\Debug\netcoreapp3.1\CoreEscuela.dll
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\bin\Debug\netcoreapp3.1\CoreEscuela.pdb
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\obj\Debug\netcoreapp3.1\CoreEscuela.csprojAssemblyReference.cache
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\obj\Debug\netcoreapp3.1\CoreEscuela.AssemblyInfoInputs.cache
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\obj\Debug\netcoreapp3.1\CoreEscuela.AssemblyInfo.cs
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\obj\Debug\netcoreapp3.1\CoreEscuela.csproj.CoreCompileInputs.cache
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\obj\Debug\netcoreapp3.1\CoreEscuela.dll
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\obj\Debug\netcoreapp3.1\CoreEscuela.pdb
+E:\OTROS\PLATZI\1_Curso de Fundamentos de C# con .NET Core\HelloWorld\CoreEscuela\obj\Debug\netcoreapp3.1\CoreEscuela.genruntimeconfig.cache
