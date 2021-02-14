@@ -22,6 +22,7 @@ namespace EscuelaEtapa1.Entidades
         public int AñoDeCreacion { get; set; }
         public string Pais { get; set; }
         public string Ciudad { get; set; }
+        public TiposEscuela TipoEscuela { get; set; }
 
         //MECANISMOS PARA INICIALIZAR LA ESCUELA
         //Constructor: metodo que ayuda a crear una instancia de este objeto
@@ -35,6 +36,12 @@ namespace EscuelaEtapa1.Entidades
 
         //Manera corta de escribir un metodo: IGUALACION POR TUPLAS
         public Escuela(string nombre, int año) => (Nombre, AñoDeCreacion) = (nombre, año);
+
+        //Sobre-escribir un metodo:
+        public override string ToString()
+        {
+            return $"Nombre: {Nombre}, Tipo: {TipoEscuela} \nPaís: {Pais}, Ciudad: {Ciudad}";
+        }
 
 
     }
