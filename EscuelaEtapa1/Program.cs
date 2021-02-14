@@ -86,7 +86,8 @@ namespace EscuelaEtapa1
                 new Curso(){Nombre = "301"}
             };
 
-            escuela = null;
+            
+
             //IMPRESIONES CON CICLOS REPETITIVOS
             /*//Forma de imprimir por la generacion del metodo WHILE
             System.Console.WriteLine("While: ----------------");
@@ -103,6 +104,33 @@ namespace EscuelaEtapa1
 
             //Nuevo metodo:
             ImprimirCursosEscuela(escuela);
+
+            //OPERADOR IF
+            bool respuesta = 10 == 10;
+            int cantidad = 10;
+            if(!respuesta)
+            {
+                WriteLine("Se cumplio la condicion #1");
+            }
+            else if(cantidad > 15)
+            {
+                WriteLine("Se cumplio la condicion #2");
+            }
+            else if (cantidad > 20)
+            {
+                WriteLine("Se cumplio la condicion #3");
+            }
+            else
+            {
+                WriteLine("No se cumplio la condicion");
+            }
+
+            if((cantidad > 5 || respuesta) && (cantidad%5 == 0))
+            {
+                WriteLine("Se cumplio la condicion #4");
+            }
+
+
 
 
             Console.ReadKey();
