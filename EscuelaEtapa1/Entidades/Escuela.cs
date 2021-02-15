@@ -8,6 +8,7 @@ namespace EscuelaEtapa1.Entidades
     //ctrl + a + f: formato a nombre
     public class Escuela
     {
+        public string UniqueId { get; set; } = Guid.NewGuid().ToString();
         string nombre;
         //Propiedad que hace posible que se acceda al "nombre" que es private.
         public string Nombre

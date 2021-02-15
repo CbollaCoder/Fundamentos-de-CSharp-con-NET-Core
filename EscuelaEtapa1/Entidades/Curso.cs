@@ -14,6 +14,11 @@ namespace EscuelaEtapa1.Entidades
 
         public TiposJornada Jornada { get; set; }
 
+        public List<Asignatura> Asignaturas { get; set; }
+
+        public List<Alumno> Alumnos { get; set; }
+
+
         //Creacion del METODO CONSTRUCTOR
         //ctor + 2xtab: para crear constructor
         //el GUID genera un tipo de numero
