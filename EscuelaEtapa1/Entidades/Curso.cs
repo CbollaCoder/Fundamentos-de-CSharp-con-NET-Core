@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EscuelaEtapa1.Entidades
 {
-    class Curso
+    public class Curso
     {
         //Se asigna que el set sea de tipo private
         public string Nombre { get;  set; }

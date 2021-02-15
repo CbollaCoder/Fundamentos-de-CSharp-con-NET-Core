@@ -6,7 +6,7 @@ namespace EscuelaEtapa1.Entidades
 {
     //Lo importante es el nombre de la clase
     //ctrl + a + f: formato a nombre
-    class Escuela
+    public class Escuela
     {
         string nombre;
         //Propiedad que hace posible que se acceda al "nombre" que es private.
