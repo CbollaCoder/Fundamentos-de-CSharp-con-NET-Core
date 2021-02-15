@@ -1,5 +1,6 @@
 ﻿using EscuelaEtapa1.Entidades;
 using System;
+using System.Collections.Generic;
 using static System.Console; //Permite solo escribir el "WriteLine"
 
 namespace EscuelaEtapa1
@@ -80,12 +81,11 @@ namespace EscuelaEtapa1
             };*/
 
             //4TA FORMA CON EL ATRIBUTO "CURSOS" CREADO EN "ESCUELA"
-            escuela.Cursos = new Curso[] {
+            /*escuela.Cursos = new Curso[] {
                 new Curso(){Nombre = "201"},
                 new Curso(){Nombre = "201"},
                 new Curso(){Nombre = "301"}
-            };
-
+            };*/
             
 
             //IMPRESIONES CON CICLOS REPETITIVOS
@@ -103,10 +103,10 @@ namespace EscuelaEtapa1
             ImprimirCursosForEach(arregloCursos);*/
 
             //Nuevo metodo:
-            ImprimirCursosEscuela(escuela);
+            //ImprimirCursosEscuela(escuela);
 
             //OPERADOR IF
-            bool respuesta = 10 == 10;
+            /*bool respuesta = 10 == 10;
             int cantidad = 10;
             if(!respuesta)
             {
@@ -128,10 +128,35 @@ namespace EscuelaEtapa1
             if((cantidad > 5 || respuesta) && (cantidad%5 == 0))
             {
                 WriteLine("Se cumplio la condicion #4");
-            }
+            }*/
 
+            //IMPLEMENTANDO COLECCIONES
+            //Lista con elementos tipo "Curso".
+            escuela.Cursos = new List<Curso>() {
+                new Curso(){Nombre = "201", Jornada = TiposJornada.Mañana},
+                new Curso(){Nombre = "301", Jornada = TiposJornada.Mañana},
+                new Curso(){Nombre = "401", Jornada = TiposJornada.Mañana}
+            };
 
+            //AGREGAR CURSOS A LA LISTA
+            escuela.Cursos.Add(new Curso() {Nombre = "102", Jornada = TiposJornada.Tarde });
+            escuela.Cursos.Add(new Curso() { Nombre = "202", Jornada = TiposJornada.Tarde });
 
+            //Adicionar otra coleccion que se quedo fuera
+            var otraColeccion = new List<Curso>() {
+                new Curso(){Nombre = "403", Jornada = TiposJornada.Mañana},
+                new Curso(){Nombre = "503", Jornada = TiposJornada.Mañana},
+                new Curso(){Nombre = "603", Jornada = TiposJornada.Mañana}
+            };
+            escuela.Cursos.AddRange(otraColeccion);
+
+            //Quitar todos los datos de la lista
+            //otraColeccion.Clear();
+
+            //Quitar algunos datos de la lista
+            
+
+            ImprimirCursosEscuela(escuela);
 
             Console.ReadKey();
         }

@@ -23,7 +23,12 @@ namespace EscuelaEtapa1.Entidades
         public string Pais { get; set; }
         public string Ciudad { get; set; }
         public TiposEscuela TipoEscuela { get; set; }
-        public Curso[] Cursos { get; set; }
+
+        /*En caso de utilizar array:
+        public Curso[] Cursos { get; set; }*/
+
+        //En caso de utilizar colecciones, en este caso "lista generica" de cursos
+        public List<Curso> Cursos { get; set; }
 
         //MECANISMOS PARA INICIALIZAR LA ESCUELA
         //Constructor: metodo que ayuda a crear una instancia de este objeto
