@@ -166,8 +166,15 @@ namespace EscuelaEtapa1
             //PASO ADICIONAL: Creamos un "predicado" para entender:
             //DELEGADO: especifica los parametros de entrada y salida que debe tener una funcion, y debe cumplirse sino no funciona.
             //DELEGADO: funcion como parametro de otro metodo.
-            Predicate<Curso> miAlgoritmo = Predicado;
-            escuela.Cursos.RemoveAll(miAlgoritmo); //Funciona con el metodo "predicado"
+            // Predicate<Curso> miAlgoritmo = Predicado;
+            // Otra forma, escribiendo toda la funcion directamente:
+            escuela.Cursos.RemoveAll(delegate (Curso cur) 
+                                     {
+                                         return cur.Nombre == "301";
+                                     });
+
+            //DELEGADO con expresion LAMBDA
+            escuela.Cursos.RemoveAll((cur) => cur.Nombre == "603" && cur.Jornada == TiposJornada.Mañana);
             
             WriteLine(" Con datos removidos: -----------------------------------------------");
             ImprimirCursosEscuela(escuela);
@@ -175,6 +182,7 @@ namespace EscuelaEtapa1
             Console.ReadKey();
         }
 
+        // DELEGADO mediante la forma de METODO
         //Con la referencia de "RemoveAll(Predicado), llama a la funcion por cada uno de los cursos y busca el "301"". El que retorna verdadero es el que va a borrar.
         private static bool Predicado(Curso curobj)
         {
