@@ -9,7 +9,7 @@ namespace EscuelaEtapa1.Entidades
     {
         Mañana,
         Tarde,
-        Nche
+        Noche
 
     }
 }

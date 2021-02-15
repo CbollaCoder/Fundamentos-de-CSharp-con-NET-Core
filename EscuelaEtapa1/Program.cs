@@ -151,14 +151,34 @@ namespace EscuelaEtapa1
             escuela.Cursos.AddRange(otraColeccion);
 
             //Quitar todos los datos de la lista
-            //otraColeccion.Clear();
+            //otraColeccion.Clear(); //No recibe ningun parametro adicional
 
-            //Quitar algunos datos de la lista
+            //Quitar algunos datos de la lista (item determinado)
+            Curso temporal = new Curso { Nombre = "Vacacional", Jornada = TiposJornada.Noche};
+            escuela.Cursos.Add(temporal);
+            WriteLine(" Con dato adicional: -----------------------------------------------");
+            ImprimirCursosEscuela(escuela);
+            //Cuando elimina busca el hashcode indicado
+            WriteLine("Curso Hash:" + temporal.GetHashCode());
+            escuela.Cursos.Remove(temporal);
+
+            //Otra forma de borrar todo
+            //PASO ADICIONAL: Creamos un "predicado" para entender:
+            //DELEGADO: especifica los parametros de entrada y salida que debe tener una funcion, y debe cumplirse sino no funciona.
+            //DELEGADO: funcion como parametro de otro metodo.
+            Predicate<Curso> miAlgoritmo = Predicado;
+            escuela.Cursos.RemoveAll(miAlgoritmo); //Funciona con el metodo "predicado"
             
-
+            WriteLine(" Con datos removidos: -----------------------------------------------");
             ImprimirCursosEscuela(escuela);
 
             Console.ReadKey();
+        }
+
+        //Con la referencia de "RemoveAll(Predicado), llama a la funcion por cada uno de los cursos y busca el "301"". El que retorna verdadero es el que va a borrar.
+        private static bool Predicado(Curso curobj)
+        {
+            return curobj.Nombre == "301";
         }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
