@@ -23,14 +23,36 @@ namespace EscuelaEtapa1.App
             
             CargarCursos();
             CargarAsignaturas();
-            var listaA = CargarAlumnos();
             CargarEvaluaciones();
 
         }
 
         private void CargarEvaluaciones()
         {
-            throw new NotImplementedException();
+            foreach (var curso in Escuela.Cursos)
+            {
+                foreach(var asignatura in curso.Asignaturas)
+                {
+                    foreach(var alumno in curso.Alumnos)
+                    {
+                        var rnd = new Random(System.Environment.TickCount);
+
+                        for(int i=0; i<5; i++)
+                        {
+                            var ev = new Evaluaciones
+                            {
+                                Asignatura = asignatura,
+                                Nombre = $"{asignatura.Nombre} Ev#{i + 1}",
+
+                                Nota = (float)(5*rnd.NextDouble()),
+                                Alumno = alumno
+                            };
+                            
+                            
+                        }
+                    }
+                }
+            }
         }
 
         private void CargarAsignaturas()
@@ -75,11 +97,12 @@ namespace EscuelaEtapa1.App
 
             //Generador de numeros aleatorios
             Random rnd = new Random();
-            int cantRandom = rnd.Next(5,20);
+            
 
             //Para cada curso se generan alumnos
             foreach (var c in Escuela.Cursos)
             {
+                int cantRandom = rnd.Next(5, 20);
                 c.Alumnos = GenerarAlumnosAlAzar(cantRandom);
             }
         }
