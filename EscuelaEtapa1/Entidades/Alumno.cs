@@ -9,11 +9,12 @@ namespace EscuelaEtapa1.Entidades
         public string UniqueId { get; set; }
         public string Nombre { get; set; }
 
-        public List<Evaluaciones> Evaluaciones { get; set; }
+        //Inicializar lista
+        public List<Evaluacion> Evaluaciones { get; set; } = new List<Evaluacion>();
 
         public Alumno() {
             UniqueId = Guid.NewGuid().ToString();
-            Evaluaciones = new List<Evaluaciones>();
+            Evaluaciones = new List<Evaluacion>(); 
         } 
 
     }

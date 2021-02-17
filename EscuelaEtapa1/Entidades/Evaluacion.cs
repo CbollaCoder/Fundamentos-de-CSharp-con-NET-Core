@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EscuelaEtapa1.Entidades
 {
-    public class Evaluaciones
+    public class Evaluacion
     {
         public string UniqueId { get; set; }
 
@@ -16,6 +16,6 @@ namespace EscuelaEtapa1.Entidades
 
         public float Nota { get; set; }
 
-        public Evaluaciones() => UniqueId = Guid.NewGuid().ToString();
+        public Evaluacion() => UniqueId = Guid.NewGuid().ToString();
     }
 }

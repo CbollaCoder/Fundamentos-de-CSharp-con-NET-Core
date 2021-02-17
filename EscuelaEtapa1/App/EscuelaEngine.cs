@@ -29,6 +29,7 @@ namespace EscuelaEtapa1.App
 
         private void CargarEvaluaciones()
         {
+            
             foreach (var curso in Escuela.Cursos)
             {
                 foreach(var asignatura in curso.Asignaturas)
@@ -39,17 +40,21 @@ namespace EscuelaEtapa1.App
 
                         for(int i=0; i<5; i++)
                         {
-                            var ev = new Evaluaciones
+                            var ev = new Evaluacion
                             {
+                                //Creamos 5 evaluaciones y se las asignamos a cada alumno
                                 Asignatura = asignatura,
                                 Nombre = $"{asignatura.Nombre} Ev#{i + 1}",
-
                                 Nota = (float)(5*rnd.NextDouble()),
+
+                                //Asignar el alumno a cada evaluacion
                                 Alumno = alumno
                             };
-                            
+
+                            alumno.Evaluaciones.Add(ev); 
                             
                         }
+
                     }
                 }
             }
