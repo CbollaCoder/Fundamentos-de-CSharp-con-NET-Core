@@ -4,6 +4,7 @@ using System.Text;
 
 namespace EscuelaEtapa1.Entidades
 {
+    //Se agrega la herencia de ObjetoEscuelaBase
     public class Alumno
     {
         public string UniqueId { get; set; }
