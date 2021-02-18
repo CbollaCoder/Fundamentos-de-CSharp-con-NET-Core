@@ -22,7 +22,11 @@ namespace EscuelaEtapa1
 
             ImprimirCursosEscuela(engine.Escuela);
 
-            Printer.DrawLine(20);
+            //POLIMORFISMO
+            //El polimorfismo se refiere a la sobrescritura de los métodos de la clase padre por sus clases hijas esto para que cada clase hija tenga un comportamiento diferente para ese método.
+            //El polimorfismo permite que un método de la clase PADRE se herede pero tambi[en que cambie su comportamiento en la clase hija(si así lo desea).
+
+            /*Printer.DrawLine(20);
             Printer.DrawLine(20);
             Printer.DrawLine(20);
             Printer.WriteTitle("Pruebas de Polimorfismo");
@@ -53,6 +57,22 @@ namespace EscuelaEtapa1
             WriteLine($"Evaluacion: {ob.Nombre}");
             WriteLine($"Evaluacion: {ob.UniqueId}");
             WriteLine($"Evaluacion: {ob.GetType()}");
+
+            //EVITAR ERRORES EN TIEMPO DE EJECUCIÓN - VALIDACIÓN CON "IS" y "AS"
+            //"IS" PARA PREGUNTAR SI UN OBJETO ES DE UN TIPO DETERMINADO
+            //
+            if(ob is Alumno)
+            {
+                var alumnoRecuperado = (Alumno)ob;
+            }
+
+            //Si obj lo puede tomar como Alumno, devuelve el obj transformado en Alumno. Pero si obj no lo puede transformar en alumno entonces devuelve null.
+            //"AS" tome este objeto como si fuera este objeto
+            //Mas recomendada
+            Alumno alumnoRecuperado2 = ob as Alumno;*/
+
+            //Solicitar el metodo GetObjetosEscuela
+            var listaObjetos = engine.GetObjetosEscuela();
 
             Console.ReadKey();
         }

@@ -112,5 +112,24 @@ namespace EscuelaEtapa1.App
             }
         }
 
+        //Metodo que devuelve todos los objetos "escuela" que contiene
+        public List<ObjetoEscuelaBase> GetObjetosEscuela()
+        {
+            var listObj = new List<ObjetoEscuelaBase>();
+            listObj.Add(Escuela);
+            listObj.AddRange(Escuela.Cursos);
+            foreach (var curso in Escuela.Cursos)
+            {
+                listObj.AddRange(curso.Asignaturas);
+                listObj.AddRange(curso.Alumnos);
+
+                foreach (var alumno in curso.Alumnos)
+                {
+                    listObj.AddRange(alumno.Evaluaciones);
+                }
+            }
+            return listObj;
+        }
+
     }
 }
