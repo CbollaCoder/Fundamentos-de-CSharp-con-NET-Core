@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EscuelaEtapa1.Entidades
 {
-    class ObjetoEscuelaBase
+    public abstract class ObjetoEscuelaBase
     {
         public string UniqueId { get; private set; }
         public string Nombre { get; set; }

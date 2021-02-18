@@ -6,16 +6,9 @@ namespace EscuelaEtapa1.Entidades
 {
     //Lo importante es el nombre de la clase
     //ctrl + a + f: formato a nombre
-    public class Escuela
+    public class Escuela : ObjetoEscuelaBase
     {
-        public string UniqueId { get; set; } = Guid.NewGuid().ToString();
-        string nombre;
-        //Propiedad que hace posible que se acceda al "nombre" que es private.
-        public string Nombre
-        {
-            get { return "Copia:" + nombre; }
-            set { nombre = value.ToUpper(); }
-        }
+       
 
         //Crear una variable + su propiedad de acceso de forma automatica con el atajo PROP:
         //PROP (presionar: 2 veces "Tab"): atajo para crear una propiedad

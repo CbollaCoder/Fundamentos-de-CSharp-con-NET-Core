@@ -4,10 +4,8 @@ using System.Text;
 
 namespace EscuelaEtapa1.Entidades
 {
-    public class Asignatura
+    public class Asignatura: ObjetoEscuelaBase
     {
-        public string UniqueId { get; set; }
-        public string Nombre { get; set; }
-        public Asignatura() => UniqueId = Guid.NewGuid().ToString();
+       //Se borra todo ya que lo hereda de la clase "ObjetoEscuelaBase.cs"
     }
 }

@@ -9,7 +9,7 @@ namespace EscuelaEtapa1.Util
     public static class Printer
     {
         //Línea impresa con un tamaño de 10 (parámetro opcional). Es posible que también el cliente pase otro tamaño.
-        public static void DibujarLinea(int tam = 10)
+        public static void DrawLine(int tam = 10)
         {
             //Cadena vacia que se la rellena a la izquierda con "=".
             var linea = "".PadLeft(tam, '=');
@@ -19,9 +19,9 @@ namespace EscuelaEtapa1.Util
         public static void WriteTitle (string titulo)
         {
             var tamano = titulo.Length + 4;
-            DibujarLinea(tamano);
+            DrawLine(tamano);
             WriteLine($"| {titulo} |");
-            DibujarLinea(tamano);
+            DrawLine(tamano);
         }
 
         public static void Beep(int hz=2000, int tiempo=500, int cantidad=1)
