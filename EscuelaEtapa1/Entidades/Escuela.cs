@@ -1,12 +1,12 @@
-﻿using System;
+﻿using EscuelaEtapa1.Util;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace EscuelaEtapa1.Entidades
 {
-    //Lo importante es el nombre de la clase
-    //ctrl + a + f: formato a nombre
-    public class Escuela : ObjetoEscuelaBase
+    //La ESCUELA debe utilizar la estructura (atributos y metodos) de la interfaz.
+    public class Escuela : ObjetoEscuelaBase, Ilugar
     {
        
 
@@ -16,6 +16,7 @@ namespace EscuelaEtapa1.Entidades
         public int AñoDeCreacion { get; set; }
         public string Pais { get; set; }
         public string Ciudad { get; set; }
+        public string Direccion { get; set; }
         public TiposEscuela TipoEscuela { get; set; }
 
         /*En caso de utilizar array:
@@ -62,6 +63,12 @@ namespace EscuelaEtapa1.Entidades
         //Caracteres especiales. Por ejemplo en caso de tener que imprimir comillas: \"{Nombre}\"
         //Salto de linea: \n o {System.Environment.NewLine} que es posible de utilizar en todos los sistemas operativos
 
-
+        //Implementación del metodo LimpiarLugar
+        public void LimpiarLugar()
+        {
+            Printer.DrawLine();
+            Console.WriteLine("Limpiando la escuela...");
+            Console.WriteLine($"Curso {Nombre} limpio.");
+        }
     }
 }
