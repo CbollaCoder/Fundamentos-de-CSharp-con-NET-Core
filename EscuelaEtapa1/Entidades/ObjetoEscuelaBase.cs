@@ -13,5 +13,12 @@ namespace EscuelaEtapa1.Entidades
         {
             UniqueId = Guid.NewGuid().ToString();
         }
+
+        //Que retorne el nombre y el identificador unico
+        //La sobrescritura del método ToString se utiliza para mejorar la depuración de nuestro proyecto. Gracias a la herencia podemos sobrescribir el método en nuestra clase padre y todas sus clases hijas también tendrán sobrescrito el método.
+        public override string ToString()
+        {
+            return $"{Nombre},{UniqueId}";
+        }
     }
 }
