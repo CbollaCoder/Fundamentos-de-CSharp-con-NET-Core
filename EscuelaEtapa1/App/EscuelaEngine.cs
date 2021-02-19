@@ -90,7 +90,7 @@ namespace EscuelaEtapa1.App
             return (listObj,conteoEvaluaciones);
         }*/
         //3era implementaciión: CON PARÁMETROS DE SALIDA. Devuelve la cantidad de cada uno de los objetos.
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList <ObjetoEscuelaBase> GetObjetosEscuela( //Es importante notar que estas listas listas solo pueden ser de lectura por lo cual se utiliza IReadOnlyList.
             out int conteoEvaluaciones,
             out int conteoCursos,
             out int  conteoAsignaturas,
@@ -129,12 +129,12 @@ namespace EscuelaEtapa1.App
                 }
 
             }
-            return listObj;
+            return listObj.AsReadOnly(); //Lista de solo lectura
         }
         //SE EVIDENCIA LA SOBRECARGA DE METODOS con WRAPPERS del PRIMERO.
         //4ta implementación: MÉTODO OPTIMIZADO con SOBRECARGA al método anterior
         //Implementacion que no pide los parámetros de salida
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
             bool traeEvaluaciones = true,
             bool traeAsignaturas = true,
             bool traeAlumnos = true,
@@ -145,7 +145,7 @@ namespace EscuelaEtapa1.App
         }
         //5ta implementación: nuevo método con SOBRECARGA, solo un parámetro de salida
         //Implementación 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
            out int conteoEvaluaciones,
            bool traeEvaluaciones = true,
            bool traeAsignaturas = true,
@@ -155,7 +155,7 @@ namespace EscuelaEtapa1.App
             return GetObjetosEscuela(out conteoEvaluaciones, out int dummy, out dummy, out dummy);
         }
         //6ta implementación: Ccon 2 parámetros de salida
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
            out int conteoEvaluaciones,
            out int conteoCursos,
            bool traeEvaluaciones = true,
@@ -166,7 +166,7 @@ namespace EscuelaEtapa1.App
             return GetObjetosEscuela(out conteoEvaluaciones, out conteoCursos, out int dummy, out dummy);
         }
         //7ma implementacion: con 3 parámetros de salida.
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
            out int conteoEvaluaciones,
            out int conteoCursos,
            out int conteoAsignaturas,
