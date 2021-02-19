@@ -74,16 +74,29 @@ namespace EscuelaEtapa1
             //------------------------------------------------------------------------------------------------------------------------
 
             //Solicitar el metodo GetObjetosEscuela
-            var listaObjetos = engine.GetObjetosEscuela();
+            //1era implementación
+            //var listaObjetos = engine.GetObjetosEscuela(false, false, false, false);
+            //2nda implementacion: haciendo un conteo de objetos con contadores. En este caso, listaObjetos es una TUPLA
+            //var listaObjetos = engine.GetObjetosEscuela(true, false, false, false);
+            //3era implementacion: 
+            int dummy = 0; // Reemplazar en caso de no querer obtener ese conteo.
+            var listaObjetos = engine.GetObjetosEscuela(
+                out int conteoEvaluaciones,
+                out int conteoCursos,
+                out int conteoAsignaturas,
+                out int conteoAlumnos);
+            //Las 3 implementaciones responden AL PROBLEMA DE OBTENER UNA LISTA DE OBJETOS Y PODERLOS CLASIFICAR.
+
+
 
             //Llamar al Limpiar definido en el Interface Ilugar
             engine.Escuela.LimpiarLugar();
 
             //Desde el punto de vista de la programación orientada a objetos cualquier objeto puede ser visto como una interfaz.
             //Haciendo uso de Linq vamos a seleccionar de nuestra lista de objetos todos los objetos y les haremos casting con ILugar.Si no declaramos que nos retorne sólo los objetos que sean de tipo ILugar, entonces el programa al realizar el casting va a causar errores silenciosos.
-            var listaIlugar = from obj in listaObjetos
+            /*var listaIlugar = from obj in listaObjetos
                               where obj is Alumno
-                              select (Alumno)obj;
+                              select (Alumno)obj;*/
 
            
 

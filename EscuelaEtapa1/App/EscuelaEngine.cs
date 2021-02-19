@@ -28,23 +28,112 @@ namespace EscuelaEtapa1.App
         }
 
         //Metodo que devuelve todos los objetos "escuela" que contiene
-        public List<ObjetoEscuelaBase> GetObjetosEscuela()
+        //1era implementacion
+        /* public List<ObjetoEscuelaBase> GetObjetosEscuela(
+             bool traeEvaluaciones = true,
+             bool traeAsignaturas = true,
+             bool traeAlumnos = true,
+             bool traeCursos = true)
+         {
+             var listObj = new List<ObjetoEscuelaBase>();
+             listObj.Add(Escuela);
+
+             if(traeCursos) listObj.AddRange(Escuela.Cursos);
+
+             foreach (var curso in Escuela.Cursos)
+             {
+                 if(traeAsignaturas)listObj.AddRange(curso.Asignaturas);
+
+                 if(traeAlumnos)listObj.AddRange(curso.Alumnos);
+
+                 if (traeEvaluaciones)
+                 {
+                     foreach (var alumno in curso.Alumnos)
+                     {
+                         listObj.AddRange(alumno.Evaluaciones);
+                     }
+                 }
+
+             }
+             return listObj;
+         }*/
+        //2nda implementacion: CON TUPLAS, es decir que devuelve 2 valores, este caso una LISTA y un ENTERO.
+        /*public (List<ObjetoEscuelaBase>, int) GetObjetosEscuela(
+            bool traeEvaluaciones = true,
+            bool traeAsignaturas = true,
+            bool traeAlumnos = true,
+            bool traeCursos = true)
         {
+            int conteoEvaluaciones = 0;
+
             var listObj = new List<ObjetoEscuelaBase>();
             listObj.Add(Escuela);
-            listObj.AddRange(Escuela.Cursos);
+
+            if (traeCursos) listObj.AddRange(Escuela.Cursos);
+
             foreach (var curso in Escuela.Cursos)
             {
-                listObj.AddRange(curso.Asignaturas);
-                listObj.AddRange(curso.Alumnos);
+                if (traeAsignaturas) listObj.AddRange(curso.Asignaturas);
 
-                foreach (var alumno in curso.Alumnos)
+                if (traeAlumnos) listObj.AddRange(curso.Alumnos);
+
+                if (traeEvaluaciones)
                 {
-                    listObj.AddRange(alumno.Evaluaciones);
+                    foreach (var alumno in curso.Alumnos)
+                    {
+                        listObj.AddRange(alumno.Evaluaciones);
+                        conteoEvaluaciones += alumno.Evaluaciones.Count;
+                    }
                 }
+
+            }
+            return (listObj,conteoEvaluaciones);
+        }*/
+        //3era implementaciión: CON PARÁMETROS DE SALIDA. Devuelve la cantidad de cada uno de los objetos.
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            out int conteoEvaluaciones,
+            out int conteoCursos,
+            out int  conteoAsignaturas,
+            out int  conteoAlumnos,
+            bool traeEvaluaciones = true,
+            bool traeAsignaturas = true,
+            bool traeAlumnos = true,
+            bool traeCursos = true)
+        {
+            //Asignaciones múltiples
+            conteoEvaluaciones = conteoCursos = conteoAsignaturas = conteoAlumnos = 0;
+
+            var listObj = new List<ObjetoEscuelaBase>();
+            listObj.Add(Escuela);
+
+            if (traeCursos) listObj.AddRange(Escuela.Cursos);
+
+            conteoCursos += Escuela.Cursos.Count;
+
+            foreach (var curso in Escuela.Cursos)
+            {
+                conteoAsignaturas += curso.Asignaturas.Count;
+                conteoAlumnos += curso.Alumnos.Count;
+
+                if (traeAsignaturas) listObj.AddRange(curso.Asignaturas);
+
+                if (traeAlumnos) listObj.AddRange(curso.Alumnos);
+
+                if (traeEvaluaciones)
+                {
+                    foreach (var alumno in curso.Alumnos)
+                    {
+                        listObj.AddRange(alumno.Evaluaciones);
+                        conteoEvaluaciones += alumno.Evaluaciones.Count;
+                    }
+                }
+
             }
             return listObj;
         }
+
+
+
 
         private List<Alumno> GenerarAlumnosAlAzar(int cantidad)
         {
