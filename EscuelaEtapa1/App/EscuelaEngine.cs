@@ -27,6 +27,7 @@ namespace EscuelaEtapa1.App
 
         }
 
+
         //Metodo que devuelve todos los objetos "escuela" que contiene
         //1era implementacion
         /* public List<ObjetoEscuelaBase> GetObjetosEscuela(

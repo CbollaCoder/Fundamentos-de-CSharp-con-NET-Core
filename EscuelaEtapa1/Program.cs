@@ -99,7 +99,27 @@ namespace EscuelaEtapa1
                               where obj is Alumno
                               select (Alumno)obj;*/
 
-           
+            //CREACION DE DICCIONARIO DE DATOS
+            Dictionary<int, string> diccionario = new Dictionary<int, string>();
+            diccionario.Add(10, "JuanK"); //Llave, Valor
+            diccionario.Add(12, "LoremIpsus");
+            diccionario[0] = "Nato";
+
+            foreach (var keyValPair in diccionario)
+            {
+                WriteLine($"Key: {keyValPair.Key}, Valor: {keyValPair.Value}");
+            }
+            //Otra forma de recorrer un diccionario
+            Printer.WriteTitle("Acceso a diccionario");
+            WriteLine(diccionario[12]);
+            WriteLine(diccionario[0]);
+            Printer.WriteTitle("Otro diccionario");
+            var dic = new Dictionary<string, string>();
+            dic["Luna"] = "Cuerpo Celeste que gira alrededor de la Tierra";
+            WriteLine(dic["Luna"]);
+            dic["Luna"] = "Protagonista de Soy Luna";
+            WriteLine(dic["Luna"]);
+            //En el caso de adicionar un campo con la misma llave y otro valor, falla ya que la llave debe ser única.
 
             Console.ReadKey();
         }
