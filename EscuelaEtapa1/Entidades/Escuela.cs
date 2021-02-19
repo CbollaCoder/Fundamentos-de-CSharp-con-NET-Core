@@ -68,7 +68,12 @@ namespace EscuelaEtapa1.Entidades
         {
             Printer.DrawLine();
             Console.WriteLine("Limpiando la escuela...");
-            Console.WriteLine($"Curso {Nombre} limpio.");
+            foreach (var curso in Cursos)
+            {
+                curso.LimpiarLugar();
+            }
+            Printer.WriteTitle($"Escuela {Nombre} limpia.");
+            Printer.Beep(1000, cantidad:3);
         }
     }
 }

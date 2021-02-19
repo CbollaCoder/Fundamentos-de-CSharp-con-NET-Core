@@ -3,6 +3,7 @@ using EscuelaEtapa1.Entidades;
 using EscuelaEtapa1.Util;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using static System.Console; //Permite solo escribir el "WriteLine"
 
 namespace EscuelaEtapa1
@@ -65,14 +66,26 @@ namespace EscuelaEtapa1
             {
                 var alumnoRecuperado = (Alumno)ob;
             }
-
             //Si obj lo puede tomar como Alumno, devuelve el obj transformado en Alumno. Pero si obj no lo puede transformar en alumno entonces devuelve null.
             //"AS" tome este objeto como si fuera este objeto
             //Mas recomendada
             Alumno alumnoRecuperado2 = ob as Alumno;*/
 
+            //------------------------------------------------------------------------------------------------------------------------
+
             //Solicitar el metodo GetObjetosEscuela
             var listaObjetos = engine.GetObjetosEscuela();
+
+            //Llamar al Limpiar definido en el Interface Ilugar
+            engine.Escuela.LimpiarLugar();
+
+            //Desde el punto de vista de la programación orientada a objetos cualquier objeto puede ser visto como una interfaz.
+            //Haciendo uso de Linq vamos a seleccionar de nuestra lista de objetos todos los objetos y les haremos casting con ILugar.Si no declaramos que nos retorne sólo los objetos que sean de tipo ILugar, entonces el programa al realizar el casting va a causar errores silenciosos.
+            var listaIlugar = from obj in listaObjetos
+                              where obj is Alumno
+                              select (Alumno)obj;
+
+           
 
             Console.ReadKey();
         }
