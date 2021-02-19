@@ -79,14 +79,15 @@ namespace EscuelaEtapa1
             //2nda implementacion: haciendo un conteo de objetos con contadores. En este caso, listaObjetos es una TUPLA
             //var listaObjetos = engine.GetObjetosEscuela(true, false, false, false);
             //3era implementacion: 
-            int dummy = 0; // Reemplazar en caso de no querer obtener ese conteo.
+            /*int dummy = 0; // Reemplazar en caso de no querer obtener ese conteo.
             var listaObjetos = engine.GetObjetosEscuela(
                 out int conteoEvaluaciones,
                 out int conteoCursos,
                 out int conteoAsignaturas,
-                out int conteoAlumnos);
+                out int conteoAlumnos);*/
             //Las 3 implementaciones responden AL PROBLEMA DE OBTENER UNA LISTA DE OBJETOS Y PODERLOS CLASIFICAR.
-
+            //Implementación de los métodos con SOBRECARGA
+            var listaObjetos = engine.GetObjetosEscuela();
 
 
             //Llamar al Limpiar definido en el Interface Ilugar

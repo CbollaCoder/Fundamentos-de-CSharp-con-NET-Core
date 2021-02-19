@@ -131,9 +131,52 @@ namespace EscuelaEtapa1.App
             }
             return listObj;
         }
-
-
-
+        //SE EVIDENCIA LA SOBRECARGA DE METODOS con WRAPPERS del PRIMERO.
+        //4ta implementación: MÉTODO OPTIMIZADO con SOBRECARGA al método anterior
+        //Implementacion que no pide los parámetros de salida
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            bool traeEvaluaciones = true,
+            bool traeAsignaturas = true,
+            bool traeAlumnos = true,
+            bool traeCursos = true)
+        {
+            //Llamado al método que pide todos los parámetros de salida
+            return GetObjetosEscuela(out int dummy, out dummy, out dummy, out dummy);
+        }
+        //5ta implementación: nuevo método con SOBRECARGA, solo un parámetro de salida
+        //Implementación 
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+           out int conteoEvaluaciones,
+           bool traeEvaluaciones = true,
+           bool traeAsignaturas = true,
+           bool traeAlumnos = true,
+           bool traeCursos = true)
+        {
+            return GetObjetosEscuela(out conteoEvaluaciones, out int dummy, out dummy, out dummy);
+        }
+        //6ta implementación: Ccon 2 parámetros de salida
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+           out int conteoEvaluaciones,
+           out int conteoCursos,
+           bool traeEvaluaciones = true,
+           bool traeAsignaturas = true,
+           bool traeAlumnos = true,
+           bool traeCursos = true)
+        {
+            return GetObjetosEscuela(out conteoEvaluaciones, out conteoCursos, out int dummy, out dummy);
+        }
+        //7ma implementacion: con 3 parámetros de salida.
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+           out int conteoEvaluaciones,
+           out int conteoCursos,
+           out int conteoAsignaturas,
+           bool traeEvaluaciones = true,
+           bool traeAsignaturas = true,
+           bool traeAlumnos = true,
+           bool traeCursos = true)
+        {
+            return GetObjetosEscuela(out conteoEvaluaciones, out conteoCursos, out conteoAsignaturas, out int dummy);
+        }
 
         private List<Alumno> GenerarAlumnosAlAzar(int cantidad)
         {
