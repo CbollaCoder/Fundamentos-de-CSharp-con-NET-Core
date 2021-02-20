@@ -118,8 +118,11 @@ namespace EscuelaEtapa1
             dic["Luna"] = "Cuerpo Celeste que gira alrededor de la Tierra";
             WriteLine(dic["Luna"]);
             dic["Luna"] = "Protagonista de Soy Luna";
-            WriteLine(dic["Luna"]);*/
-            //En el caso de adicionar un campo con la misma llave y otro valor, falla ya que la llave debe ser única.
+            WriteLine(dic["Luna"]);
+            //En el caso de adicionar un campo con la misma llave y otro valor, falla ya que la llave debe ser única.*/
+
+            var dictmp = engine.GetDiccionarioObjetos();
+            engine.ImprimirDiccionario(dictmp);
 
             Console.ReadKey();
         }

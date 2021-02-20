@@ -1,4 +1,5 @@
 ﻿using EscuelaEtapa1.Entidades;
+using EscuelaEtapa1.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,15 +31,54 @@ namespace EscuelaEtapa1.App
         //CREACIÓN DE UN DICCIONARIO: listar los objetos ObjetoEscuelaBase
         //El segundo parámetro del diccionario es un IEnumerable de tipo lista de objetos ObjetoEscuela
         //IEnumerable: Tipo de lista generico ya que es 1.Una interfaz generica de lista y 2. Cuando hacemos Cast() para convertir los cursos, se nos devuelve un IEnumerable 
-
-        public Dictionary<string, IEnumerable<ObjetoEscuelaBase>> GetDiccionarioObjetos()
+        
+        //Es inseguro dejar las llaves del diccionario como string por lo tanto se las cambia por una enumeración
+        public Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> GetDiccionarioObjetos()
         {
-            var diccionario = new Dictionary<string, IEnumerable<ObjetoEscuelaBase>>();
+            
+            var diccionario = new Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>>();
 
             //Objeto escuela de tipo Lista pero que solo tiene un elemento
-            diccionario.Add("Escuela", new[] { Escuela });
-            diccionario.Add("Cursos", Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LlaveDiccionario.Escuela, new[] { Escuela });
+            diccionario.Add(LlaveDiccionario.Curso, Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            
+            var listatmp = new List<Evaluacion>();
+            var listatmpas = new List<Asignatura>();
+            var listatmpal = new List<Alumno>();
+
+            foreach (var cur in Escuela.Cursos)
+            {
+                listatmpas.AddRange(cur.Asignaturas);
+                listatmpal.AddRange(cur.Alumnos);
+
+                foreach (var alum in cur.Alumnos)
+                {
+                    listatmp.AddRange(alum.Evaluaciones);
+                }
+                
+            }
+            diccionario.Add(LlaveDiccionario.Evaluacion, listatmp.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LlaveDiccionario.Asignatura, listatmpas.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LlaveDiccionario.Alumno, listatmpal.Cast<ObjetoEscuelaBase>());
+            
             return diccionario;
+        }
+
+        //Metodo de imresion del diccionario
+        public void ImprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> dic)
+        {
+            //Imprime la llave
+            foreach (var obj in dic)
+            {
+
+                Printer.WriteTitle(obj.Key.ToString());
+
+                //Imprime todos los valores asociados a las llaves
+                foreach (var val in obj.Value)
+                {
+                    Console.WriteLine(val);
+                }
+            }
         }
 
 
