@@ -65,7 +65,9 @@ namespace EscuelaEtapa1.App
         }
 
         //Metodo de imresion del diccionario
-        public void ImprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> dic)
+        //Se agrega un parámetro opcional para imprimir o no las evaluaciones
+        public void ImprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> dic, 
+            bool imprEval = false)
         {
             //Imprime la llave
             foreach (var obj in dic)
@@ -76,7 +78,23 @@ namespace EscuelaEtapa1.App
                 //Imprime todos los valores asociados a las llaves
                 foreach (var val in obj.Value)
                 {
-                    Console.WriteLine(val);
+                    if (val is Evaluacion)
+                    {
+                        if(imprEval) Console.WriteLine(val);
+                    }
+                    else if( val is Escuela)
+                    {
+                        Console.WriteLine("Escuela: " + val);
+                    }
+                    else if(val is Alumno)
+                    {
+                        Console.WriteLine("Alumno: " + val.Nombre);
+                    }
+                    else
+                    {
+                        Console.WriteLine(val);
+                    }
+                        
                 }
             }
         }
