@@ -27,6 +27,19 @@ namespace EscuelaEtapa1.App
 
         }
 
+        //CREACIÓN DE UN DICCIONARIO: listar los objetos ObjetoEscuelaBase
+        //El segundo parámetro del diccionario es un IEnumerable de tipo lista de objetos ObjetoEscuela
+        //IEnumerable: Tipo de lista generico
+        public Dictionary<string, IEnumerable<ObjetoEscuelaBase>> GetDiccionarioObjetos()
+        {
+            var diccionario = new Dictionary<string, IEnumerable<ObjetoEscuelaBase>>();
+
+            //Objeto escuela de tipo Lista pero que solo tiene un elemento
+            diccionario.Add("Escuela", new[] { Escuela });
+            diccionario.Add("Cursos", Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            return diccionario;
+        }
+
 
         //Metodo que devuelve todos los objetos "escuela" que contiene
         //1era implementacion
@@ -178,6 +191,8 @@ namespace EscuelaEtapa1.App
         {
             return GetObjetosEscuela(out conteoEvaluaciones, out conteoCursos, out conteoAsignaturas, out int dummy);
         }
+
+       
 
         private List<Alumno> GenerarAlumnosAlAzar(int cantidad)
         {

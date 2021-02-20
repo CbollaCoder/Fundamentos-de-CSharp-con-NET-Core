@@ -100,7 +100,7 @@ namespace EscuelaEtapa1
                               select (Alumno)obj;*/
 
             //CREACION DE DICCIONARIO DE DATOS
-            Dictionary<int, string> diccionario = new Dictionary<int, string>();
+            /*Dictionary<int, string> diccionario = new Dictionary<int, string>();
             diccionario.Add(10, "JuanK"); //Llave, Valor
             diccionario.Add(12, "LoremIpsus");
             diccionario[0] = "Nato";
@@ -118,7 +118,7 @@ namespace EscuelaEtapa1
             dic["Luna"] = "Cuerpo Celeste que gira alrededor de la Tierra";
             WriteLine(dic["Luna"]);
             dic["Luna"] = "Protagonista de Soy Luna";
-            WriteLine(dic["Luna"]);
+            WriteLine(dic["Luna"]);*/
             //En el caso de adicionar un campo con la misma llave y otro valor, falla ya que la llave debe ser única.
 
             Console.ReadKey();
