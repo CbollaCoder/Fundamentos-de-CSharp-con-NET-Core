@@ -29,7 +29,8 @@ namespace EscuelaEtapa1.App
 
         //CREACIÓN DE UN DICCIONARIO: listar los objetos ObjetoEscuelaBase
         //El segundo parámetro del diccionario es un IEnumerable de tipo lista de objetos ObjetoEscuela
-        //IEnumerable: Tipo de lista generico
+        //IEnumerable: Tipo de lista generico ya que es 1.Una interfaz generica de lista y 2. Cuando hacemos Cast() para convertir los cursos, se nos devuelve un IEnumerable 
+
         public Dictionary<string, IEnumerable<ObjetoEscuelaBase>> GetDiccionarioObjetos()
         {
             var diccionario = new Dictionary<string, IEnumerable<ObjetoEscuelaBase>>();
