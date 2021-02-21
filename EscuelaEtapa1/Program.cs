@@ -12,11 +12,7 @@ namespace EscuelaEtapa1
     {
         static void Main(string[] args)
         {
-            //MANEJADOR DE EVENTO
-            AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
-            //Acumulación de DELEGADOS
-            AppDomain.CurrentDomain.ProcessExit += (o, s) => Printer.Beep(2000,1000,1); 
-
+           
             var engine = new EscuelaEngine();
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA!");
@@ -128,6 +124,15 @@ namespace EscuelaEtapa1
 
             var dictmp = engine.GetDiccionarioObjetos();
             engine.ImprimirDiccionario(dictmp);
+
+            //MANEJADOR DE EVENTO
+            AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
+            //Acumulación de DELEGADOS o MULTICAST DELEGATE
+            AppDomain.CurrentDomain.ProcessExit += (o, s) => Printer.Beep(2000, 1000, 1);
+
+            //  REPORTEADOR
+            var reporteador = new Reporteador(engine.GetDiccionarioObjetos());
+            reporteador.GetListaEvaluaciones();
 
             Console.ReadKey();
         }
