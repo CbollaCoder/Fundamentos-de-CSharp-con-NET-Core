@@ -69,16 +69,15 @@ namespace EscuelaEtapa1.App
         public void ImprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> dic, 
             bool imprEval = false)
         {
-            //Imprime la llave
-            foreach (var obj in dic)
+            //Recorremos cada objeto del diccionario
+            foreach (var objdic in dic)
             {
-
-                Printer.WriteTitle(obj.Key.ToString());
+                Printer.WriteTitle(objdic.Key.ToString());
 
                 //Imprime todos los valores asociados a las llaves
-                foreach (var val in obj.Value)
+                foreach (var val in objdic.Value)
                 {
-                    if (val is Evaluacion)
+                    /*if (val is Evaluacion)
                     {
                         if(imprEval) Console.WriteLine(val);
                     }
@@ -93,8 +92,38 @@ namespace EscuelaEtapa1.App
                     else
                     {
                         Console.WriteLine(val);
+                    }*/
+
+                    //Otra forma usando un switch
+                    switch (objdic.Key)
+                    {
+                        //Si sin evaluaciones
+                        case LlaveDiccionario.Evaluacion:
+                            if (imprEval) Console.WriteLine(val);
+                            break;
+
+                        case LlaveDiccionario.Escuela:
+                            Console.WriteLine("Escuela: " + val);
+                            break;
+
+                        case LlaveDiccionario.Alumno:
+                            Console.WriteLine("Alumno: " + val.Nombre);
+                            break;
+
+                        case LlaveDiccionario.Curso:
+                            var curtmp = val as Curso;
+                            if(curtmp != null)
+                            {
+                                int count = curtmp.Alumnos.Count;
+                                Console.WriteLine("Curso: " + val.Nombre + "Cantidad de Alumnos: " + count);
+                            }
+                            break;
+
+                        default:
+                            Console.WriteLine(val);
+                            break;
                     }
-                        
+
                 }
             }
         }
@@ -290,7 +319,7 @@ namespace EscuelaEtapa1.App
                                 //Creamos 5 evaluaciones y se las asignamos a cada alumno
                                 Asignatura = asignatura,
                                 Nombre = $"{asignatura.Nombre} Ev#{i + 1}",
-                                Nota = (float)(5*rnd.NextDouble()),
+                                Nota = (float)Math.Round((5 * rnd.NextDouble()),2),
 
                                 //Asignar el alumno a cada evaluacion
                                 Alumno = alumno

@@ -21,7 +21,7 @@ namespace EscuelaEtapa1
             //Printer.DibujarLinea(20);
             //Printer.DibujarLinea();
 
-            ImprimirCursosEscuela(engine.Escuela);
+            //ImprimirCursosEscuela(engine.Escuela);
 
             //POLIMORFISMO
             //El polimorfismo se refiere a la sobrescritura de los métodos de la clase padre por sus clases hijas esto para que cada clase hija tenga un comportamiento diferente para ese método.
@@ -122,13 +122,13 @@ namespace EscuelaEtapa1
             //En el caso de adicionar un campo con la misma llave y otro valor, falla ya que la llave debe ser única.*/
 
             var dictmp = engine.GetDiccionarioObjetos();
-            engine.ImprimirDiccionario(dictmp);
+            engine.ImprimirDiccionario(dictmp,true);
 
             Console.ReadKey();
         }
 
         
-        private static void ImprimirCursosEscuela(Escuela escuela)
+        /*private static void ImprimirCursosEscuela(Escuela escuela)
         {
             Printer.WriteTitle("Cursos de la Escuela");
 
@@ -139,7 +139,7 @@ namespace EscuelaEtapa1
                    Console.WriteLine($"Nombre {curso.Nombre}, Id{curso.UniqueId}");
                 }
             }
-        }
+        }*/
 
        
     }
