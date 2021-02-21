@@ -12,6 +12,11 @@ namespace EscuelaEtapa1
     {
         static void Main(string[] args)
         {
+            //MANEJADOR DE EVENTO
+            AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
+            //Acumulación de DELEGADOS
+            AppDomain.CurrentDomain.ProcessExit += (o, s) => Printer.Beep(2000,1000,1); 
+
             var engine = new EscuelaEngine();
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA!");
@@ -122,12 +127,20 @@ namespace EscuelaEtapa1
             //En el caso de adicionar un campo con la misma llave y otro valor, falla ya que la llave debe ser única.*/
 
             var dictmp = engine.GetDiccionarioObjetos();
-            engine.ImprimirDiccionario(dictmp,true);
+            engine.ImprimirDiccionario(dictmp);
 
             Console.ReadKey();
         }
 
-        
+        //Método Generado para el EVENTO
+        private static void AccionDelEvento(object sender, EventArgs e)
+        {
+            Printer.WriteTitle("SALIENDO");
+            Printer.Beep(3000, 1000, 3);
+            Printer.WriteTitle("SALIÓ");
+        }
+
+
         /*private static void ImprimirCursosEscuela(Escuela escuela)
         {
             Printer.WriteTitle("Cursos de la Escuela");
@@ -141,6 +154,6 @@ namespace EscuelaEtapa1
             }
         }*/
 
-       
+
     }
 }

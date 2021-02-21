@@ -303,14 +303,16 @@ namespace EscuelaEtapa1.App
 
         private void CargarEvaluaciones()
         {
-            
+            var rnd = new Random();
+
             foreach (var curso in Escuela.Cursos)
             {
                 foreach(var asignatura in curso.Asignaturas)
                 {
                     foreach(var alumno in curso.Alumnos)
                     {
-                        var rnd = new Random(System.Environment.TickCount);
+                        //Existe un patron de repetimiento debido a que siempre se tiene la misma semilla. Por lo tanto se lo mueve de lugar al inicio y se le quita el TickCount.
+                        //var rnd = new Random(System.Environment.TickCount);
 
                         for(int i=0; i<5; i++)
                         {
