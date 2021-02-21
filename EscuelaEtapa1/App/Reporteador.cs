@@ -19,19 +19,31 @@ namespace EscuelaEtapa1.App
             _diccionario = dicObjEsc;
         }
 
-        public IEnumerable<Escuela> GetListaEvaluaciones()
+        public IEnumerable<Evaluacion> GetListaEvaluaciones()
         {
-            IEnumerable<Escuela> rta;
-            if(_diccionario.TryGetValue(LlaveDiccionario.Escuela, out IEnumerable<ObjetoEscuelaBase> lista))
+            
+            if(_diccionario.TryGetValue(LlaveDiccionario.Evaluacion, out IEnumerable<ObjetoEscuelaBase> lista))
             {
-                rta = lista.Cast<Escuela>();
+                return lista.Cast<Evaluacion>();
             }
             else{
 
-                rta = null;
+                return new List<Evaluacion>();
             }
 
-            return rta;
         }
+
+        public IEnumerable<string> GetListaAsignaturas()
+        {
+            var listaEvaluaciones = GetListaEvaluaciones();
+
+            //Por cada objeto en mi lista de Evaluaciones (1era linea), donde las evaluaciones esten aprobadas (3ra linea),haga (2nda linea) : de cada una de las evaluaciones, seleccione la asignatura.
+            return (from Evaluacion ev in listaEvaluaciones //origen de datos
+                   //where ev.Nota >= 3.0f
+                   select ev.Asignatura.Nombre).Distinct();
+                
+        }
+
+
     }
 }
