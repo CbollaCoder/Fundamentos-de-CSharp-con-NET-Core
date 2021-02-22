@@ -78,17 +78,22 @@ namespace EscuelaEtapa1.App
 
             foreach (var asigConEval in dicEvalxAsig)
             {
-                var dummy = from eval in asigConEval.Value
-                            group eval by eval.Alumno.UniqueId
-                            into groupEvalsAlumno
+                var promsAlumn = from eval in asigConEval.Value
+                            group eval by new {
+                                eval.Alumno.UniqueId,
+                                eval.Alumno.Nombre
+                            }
+                            into grupEvalsAlumno
                             //Objeto anónimo
-                            select new
+                            select new AlumnoPromedio
                             {
-                                AlumnoId = groupEvalsAlumno.Key,
+                                alumnoid = grupEvalsAlumno.Key.UniqueId,
+                                alumnoNombre = grupEvalsAlumno.Key.Nombre,
                                 //Por cada uno de los miembors de "eval"
-                                Promedio = groupEvalsAlumno.Average(evaluacion => evaluacion.Nota)
+                               promedio = grupEvalsAlumno.Average(evaluacion => evaluacion.Nota)
                             };
 
+                rta.Add(asigConEval.Key, promsAlumn);
             }
 
             return rta;
