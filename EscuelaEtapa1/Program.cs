@@ -135,6 +135,7 @@ namespace EscuelaEtapa1
             var evalList = reporteador.GetListaEvaluaciones();
             var listaAsig = reporteador.GetListaAsignaturas();
             var listaEvalXAsig = reporteador.GetDicEvaluaXAsig();
+            var listaPromedioxAsig = reporteador.GetPromAlumnPorAsignatura();
 
             Console.ReadKey();
         }

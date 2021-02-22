@@ -71,6 +71,27 @@ namespace EscuelaEtapa1.App
         }
 
         //Reporte para extraer el promedio de los alumnos en cada una de las asgnaturas
+        public Dictionary<string, IEnumerable<object>> GetPromAlumnPorAsignatura()
+        {
+            var rta = new Dictionary<string, IEnumerable<Object>>();
+            var dicEvalxAsig = GetDicEvaluaXAsig();
 
+            foreach (var asigConEval in dicEvalxAsig)
+            {
+                var dummy = from eval in asigConEval.Value
+                            group eval by eval.Alumno.UniqueId
+                            into groupEvalsAlumno
+                            //Objeto anónimo
+                            select new
+                            {
+                                AlumnoId = groupEvalsAlumno.Key,
+                                //Por cada uno de los miembors de "eval"
+                                Promedio = groupEvalsAlumno.Average(evaluacion => evaluacion.Nota)
+                            };
+
+            }
+
+            return rta;
+        }
     }
 }
