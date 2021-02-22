@@ -33,17 +33,44 @@ namespace EscuelaEtapa1.App
 
         }
 
+        //Sobrecarga de métodos
         public IEnumerable<string> GetListaAsignaturas()
         {
-            var listaEvaluaciones = GetListaEvaluaciones();
+            return GetListaAsignaturas(out var dummy);
+        }
+
+        public IEnumerable<string> GetListaAsignaturas(
+            out IEnumerable<Evaluacion> listaEvaluaciones)
+        {
+            listaEvaluaciones = GetListaEvaluaciones();
 
             //Por cada objeto en mi lista de Evaluaciones (1era linea), donde las evaluaciones esten aprobadas (3ra linea),haga (2nda linea) : de cada una de las evaluaciones, seleccione la asignatura.
             return (from Evaluacion ev in listaEvaluaciones //origen de datos
-                   //where ev.Nota >= 3.0f
-                   select ev.Asignatura.Nombre).Distinct();
-                
+                                                            //where ev.Nota >= 3.0f
+                    select ev.Asignatura.Nombre).Distinct();
+
         }
 
+        
+        public Dictionary<string, IEnumerable<Evaluacion>> GetDicEvaluaXAsig()
+        {
+            var dictaRta = new Dictionary<string, IEnumerable<Evaluacion>>();
+
+            var listaAsig = GetListaAsignaturas(out var listaEval);
+
+            foreach (var asig in listaAsig)
+            {
+                var evalAsig = from eval in listaEval
+                               where eval.Asignatura.Nombre == asig
+                               select eval;
+
+                dictaRta.Add(asig, evalAsig);
+            }
+
+            return dictaRta;
+        }
+
+        //Reporte para extraer el promedio de los alumnos en cada una de las asgnaturas
 
     }
 }

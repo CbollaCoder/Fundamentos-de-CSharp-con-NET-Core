@@ -134,6 +134,7 @@ namespace EscuelaEtapa1
             var reporteador = new Reporteador(engine.GetDiccionarioObjetos());
             var evalList = reporteador.GetListaEvaluaciones();
             var listaAsig = reporteador.GetListaAsignaturas();
+            var listaEvalXAsig = reporteador.GetDicEvaluaXAsig();
 
             Console.ReadKey();
         }
