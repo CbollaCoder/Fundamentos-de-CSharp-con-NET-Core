@@ -16,6 +16,11 @@ namespace EscuelaEtapa1.Util
             WriteLine(linea);
         }
 
+        public static void PresioneENTER()
+        {
+            WriteLine("Presione ENTER para continuar");
+        }
+
         public static void WriteTitle (string titulo)
         {
             var tamano = titulo.Length + 4;
