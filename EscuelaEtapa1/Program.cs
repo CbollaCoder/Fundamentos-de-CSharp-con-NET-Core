@@ -193,9 +193,15 @@ namespace EscuelaEtapa1
                     Printer.WriteTitle("El valor de la nota no es un número válido.");
                     WriteLine("Saliendo del programa");
                 }
+                finally
+                {
+                    Printer.WriteTitle("FINALLY!");
+                    Printer.Beep(2500, 500, 3);
+                }
 
             }
             
+
 
             Console.ReadKey();
         }
